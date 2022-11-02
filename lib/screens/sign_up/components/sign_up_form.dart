@@ -81,6 +81,7 @@ class _SignUpFormState extends State<SignUpForm> {
                       "password is:$password\nconfirm password is:$confirm_password");
                   if (_formKey.currentState!.validate()) {
                     _formKey.currentState!.save();
+                    
                     Navigator.pushNamed(context, CompleteProfile.routeName);
                   }
                 })
