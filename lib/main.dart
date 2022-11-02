@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:oniyeye/routes.dart';
-import 'package:oniyeye/screens/profile/profile_screen.dart';
 import 'package:oniyeye/themes.dart';
 
 import 'screens/splash_screen/splash_screen.dart';

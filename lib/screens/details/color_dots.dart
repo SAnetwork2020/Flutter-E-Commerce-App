@@ -19,8 +19,8 @@ class ColorDot extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      margin: EdgeInsets.only(right: 2),
-      padding: EdgeInsets.all(8),
+      margin: const EdgeInsets.only(right: 2),
+      padding: const EdgeInsets.all(8),
       height: getProportionateScreenWidth(40),
       width: getProportionateScreenWidth(40),
       decoration: BoxDecoration(
@@ -52,7 +52,7 @@ class ColorDots extends StatelessWidget {
     return Row(
       children: [
         ...List.generate(product.colors.length, (index) => ColorDot(color: product.colors[index])),
-        Spacer(),
+        const Spacer(),
         RoundedIconBtn(iconData: Icons.remove, press: (){}),
         SizedBox(width: getProportionateScreenWidth(15),),
         RoundedIconBtn(iconData: Icons.add, press: (){}),

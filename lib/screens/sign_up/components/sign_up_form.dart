@@ -22,6 +22,7 @@ class _SignUpFormState extends State<SignUpForm> {
       });
     }
   }
+
   void addError({String? error}) {
     if (!errors.contains(error)) {
       setState(() {
@@ -29,94 +30,122 @@ class _SignUpFormState extends State<SignUpForm> {
       });
     }
   }
+
   final _formKey = GlobalKey<FormState>();
   String email = "";
   String password = "";
   String confirm_password = "";
-  final List<String>errors = [];
+  final List<String> errors = [];
 
   bool isVisible = true;
   bool isPassVisible = true;
-
 
   @override
   Widget build(BuildContext context) {
     return Form(
       key: _formKey,
       child: Padding(
-        padding: EdgeInsets.symmetric(horizontal: getProportionateScreenWidth(20)),
+        padding:
+            EdgeInsets.symmetric(horizontal: getProportionateScreenWidth(20)),
         child: Column(
           children: [
             buildEmailFormField(),
-            SizedBox(height: getProportionateScreenHeight(30),),
-            buildPasswordFormField(isPassVisible: isPassVisible, press: () {
-              setState(() {
-                isPassVisible = !isPassVisible;
-              });
-            }),
-            SizedBox(height: getProportionateScreenHeight(30),),
-            buildConfFormField(press: () {
-              setState(() {
-                isVisible = !isVisible;
-              });
-            }, isVisible: isVisible),
-            SizedBox(height: getProportionateScreenHeight(40),),
+            SizedBox(
+              height: getProportionateScreenHeight(30),
+            ),
+            buildPasswordFormField(
+                isPassVisible: isPassVisible,
+                press: () {
+                  setState(() {
+                    isPassVisible = !isPassVisible;
+                  });
+                }),
+            SizedBox(
+              height: getProportionateScreenHeight(30),
+            ),
+            buildConfFormField(
+                press: () {
+                  setState(() {
+                    isVisible = !isVisible;
+                  });
+                },
+                isVisible: isVisible),
+            SizedBox(
+              height: getProportionateScreenHeight(40),
+            ),
             FormError(errors: errors),
-            DefaultButton(text: "Continue", press: (){
-              print("password is:$password\nconfirm password is:$confirm_password");
-              if (_formKey.currentState!.validate()){
-                _formKey.currentState!.save();
-              Navigator.pushNamed(context, CompleteProfile.routeName);
-            }}
-          )
+            DefaultButton(
+                text: "Continue",
+                press: () {
+                  print(
+                      "password is:$password\nconfirm password is:$confirm_password");
+                  if (_formKey.currentState!.validate()) {
+                    _formKey.currentState!.save();
+                    Navigator.pushNamed(context, CompleteProfile.routeName);
+                  }
+                })
           ],
         ),
       ),
     );
   }
 
-  TextFormField buildConfFormField({required isVisible,required Function() press}) {
+  TextFormField buildConfFormField(
+      {required isVisible, required Function() press}) {
     return TextFormField(
       obscureText: isVisible,
       keyboardType: TextInputType.emailAddress,
-      onSaved: (newValue)=> confirm_password = newValue!,
-      onChanged: (value){
-        if (value.isNotEmpty){
+      onSaved: (newValue) => confirm_password = newValue!,
+      onChanged: (value) {
+        if (value.isNotEmpty) {
           removeError(error: kPassNullError);
-        }else if (value == password){
+        } else if (value == password) {
           removeError(error: kConfPassNullError);
         }
         confirm_password = value;
       },
-      validator: (value){
-        if (value!.isEmpty){
+      validator: (value) {
+        if (value!.isEmpty) {
           addError(error: kConfPassNullError);
           return "";
-        }if (value != password){
+        }
+        if (value != password) {
           addError(error: kMatchPassError);
           return "";
         }
         return null;
       },
-      decoration:  InputDecoration(
+      decoration: InputDecoration(
           labelText: "Confirm Password",
           hintText: "Re-enter your password",
           floatingLabelBehavior: FloatingLabelBehavior.always,
+          prefixIcon: Padding(
+            padding: EdgeInsets.only(
+              left: getProportionateScreenWidth(10),
+            ),
+            child: const CustomSuffixIcon(
+              SvgIcon: 'assets/icons/Lock.svg',
+            ),
+          ),
           suffixIcon: Padding(
-            padding: EdgeInsets.only(right:getProportionateScreenWidth(10)),
-            child: IconButton(onPressed: press,
-              icon: isVisible? const Icon(Icons.visibility_off):const Icon(Icons.visibility)),
-          )
-      ),
+            padding: EdgeInsets.only(right: getProportionateScreenWidth(10)),
+            child: IconButton(
+                color: isVisible ? kSecondaryColor : kPrimaryColor,
+                onPressed: press,
+                icon: isVisible
+                    ? const Icon(Icons.visibility_off)
+                    : const Icon(Icons.visibility)),
+          )),
     );
   }
 
-  TextFormField buildPasswordFormField({required isPassVisible, required Function() press}) {
+  TextFormField buildPasswordFormField(
+      {required isPassVisible, required Function() press}) {
     return TextFormField(
       obscureText: isPassVisible,
       keyboardType: TextInputType.emailAddress,
       onSaved: (newValue) => password = newValue!,
-      onChanged: (value){
+      onChanged: (value) {
         // if (value.isNotEmpty){
         //   removeError(error:kPassNullError);
         // }else if(value.length >= 8){
@@ -125,11 +154,11 @@ class _SignUpFormState extends State<SignUpForm> {
         // return "";
         password = value;
       },
-      validator: (value){
-        if (value!.isEmpty){
-          addError(error:kPassNullError);
+      validator: (value) {
+        if (value!.isEmpty) {
+          addError(error: kPassNullError);
           return "";
-        }else if(value.length < 8 ){
+        } else if (value.length < 8) {
           addError(error: kShortPassError);
           return "";
         }
@@ -139,33 +168,46 @@ class _SignUpFormState extends State<SignUpForm> {
           labelText: "Password",
           hintText: "Enter your password",
           floatingLabelBehavior: FloatingLabelBehavior.always,
-          suffixIcon: Padding(
-            padding: EdgeInsets.only(right:getProportionateScreenWidth(10),
+          prefixIcon: Padding(
+            padding: EdgeInsets.only(
+              left: getProportionateScreenWidth(10),
             ),
-            child: IconButton(onPressed: press,
+            child: const CustomSuffixIcon(
+              SvgIcon: 'assets/icons/Lock.svg',
+            ),
+          ),
+          suffixIcon: Padding(
+            padding: EdgeInsets.only(
+              right: getProportionateScreenWidth(10),
+            ),
+            child: IconButton(
+                color: isPassVisible ? kSecondaryColor : kPrimaryColor,
+                onPressed: press,
                 splashRadius: 1,
-                icon: isPassVisible? const Icon(Icons.visibility_off):const Icon(Icons.visibility)),
-          )
-      ),
+                icon: isPassVisible
+                    ? const Icon(Icons.visibility_off)
+                    : const Icon(Icons.visibility)),
+          )),
     );
   }
 
   TextFormField buildEmailFormField() {
     return TextFormField(
-      onSaved: (newValue)=>email = newValue!,
+      onSaved: (newValue) => email = newValue!,
       keyboardType: TextInputType.emailAddress,
-      onChanged: (value){
-        if (value.isNotEmpty){
+      onChanged: (value) {
+        if (value.isNotEmpty) {
           removeError(error: kEmailNullError);
-        }else if(emailValidatorRegExp.hasMatch(value)){
+        } else if (emailValidatorRegExp.hasMatch(value)) {
           removeError(error: kInvalidEmailError);
-        }return;
+        }
+        return;
       },
-      validator: (value){
-        if (value!.isEmpty){
+      validator: (value) {
+        if (value!.isEmpty) {
           addError(error: kEmailNullError);
           return "";
-        }else if(!emailValidatorRegExp.hasMatch(value)){
+        } else if (!emailValidatorRegExp.hasMatch(value)) {
           addError(error: kInvalidEmailError);
           return "";
         }
@@ -175,9 +217,9 @@ class _SignUpFormState extends State<SignUpForm> {
           hintText: "Enter your email",
           labelText: "Email",
           floatingLabelBehavior: FloatingLabelBehavior.always,
-          suffixIcon: CustomSuffixIcon(SvgIcon: 'assets/icons/Mail.svg',)
-      ),
+          suffixIcon: CustomSuffixIcon(
+            SvgIcon: 'assets/icons/Mail.svg',
+          )),
     );
   }
-
 }

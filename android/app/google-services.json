@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "820494065062",
+    "project_id": "oniyeye",
+    "storage_bucket": "oniyeye.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:820494065062:android:585fb6bbb6354406d50367",
+        "android_client_info": {
+          "package_name": "com.example.oniyeye"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "820494065062-hd9h14d0sgmavct23tv674foj7fcp71i.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBWrGHUzvjGGuA1iigf5-roNxUUApwx-BI"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "820494065062-hd9h14d0sgmavct23tv674foj7fcp71i.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

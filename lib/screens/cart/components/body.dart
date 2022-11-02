@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
-import 'package:oniyeye/constants.dart';
 import 'package:oniyeye/size_config.dart';
 
 import '../../../components/cart.dart';

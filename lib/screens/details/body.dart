@@ -1,8 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_svg/svg.dart';
 import 'package:oniyeye/components/default_button.dart';
-import 'package:oniyeye/constants.dart';
-import 'package:oniyeye/screens/details/details_screen.dart';
 import 'package:oniyeye/screens/details/product_description.dart';
 import 'package:oniyeye/screens/details/product_images.dart';
 import 'package:oniyeye/screens/details/top_rounded_container.dart';
@@ -27,7 +24,7 @@ class Body extends StatelessWidget {
               children: [
                 ProductDescription(product: product, pressOnSeeMore: () {  },),
                 TopRoundedContainer(
-                    color: Color(0xfff6f7f9),
+                    color: const Color(0xfff6f7f9),
                     child: Column(
                       children: [
                         ColorDots(product: product),
