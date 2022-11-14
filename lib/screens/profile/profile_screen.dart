@@ -1,11 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_svg/flutter_svg.dart';
 import 'package:oniyeye/enums.dart';
-import 'package:oniyeye/screens/home_screen/home_screen.dart';
 import 'package:oniyeye/screens/profile/components/body.dart';
 
 import '../../components/custom_bottom_nav_bar.dart';
-import '../../constants.dart';
 
 class ProfileScreen extends StatelessWidget {
   static String routeName = "/Profile Screen";
@@ -18,8 +15,8 @@ class ProfileScreen extends StatelessWidget {
         title: const Text("Profile"),
         centerTitle: true,
       ),
-      body: Body(),
-      bottomNavigationBar: CustomBottomNavbar(selectedMenu: MenuState.profile,),
+      body: const Body(),
+      bottomNavigationBar: const CustomBottomNavbar(selectedMenu: MenuState.profile,),
     );
   }
 }

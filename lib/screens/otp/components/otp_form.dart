@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:oniyeye/screens/login_success/login_success_screen.dart';
 
 import '../../../components/default_button.dart';
 import '../../../constants.dart';
@@ -10,6 +11,7 @@ class OtpForm extends StatefulWidget {
   @override
   State<OtpForm> createState() => _OtpFormState();
 }
+
 class _OtpFormState extends State<OtpForm> {
   final _formKey = GlobalKey<FormState>();
   FocusNode pin2FocusNode = FocusNode();
@@ -116,8 +118,15 @@ class _OtpFormState extends State<OtpForm> {
                 ),
               ],
             ),
-            SizedBox(height: SizeConfig.screenHeight! * 0.15,),
-            DefaultButton(text: 'Continue', press: () {  },),
+            SizedBox(
+              height: SizeConfig.screenHeight! * 0.15,
+            ),
+            DefaultButton(
+              text: 'Continue',
+              press: () {
+                Navigator.pushNamed(context, LoginSuccess.routeName);
+              },
+            ),
           ],
         ));
   }

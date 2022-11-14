@@ -1,6 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_svg/flutter_svg.dart';
-import 'package:oniyeye/constants.dart';
 import 'package:oniyeye/screens/profile/components/profile_menu.dart';
 import 'package:oniyeye/screens/profile/components/profile_pic.dart';
 

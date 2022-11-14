@@ -1,4 +1,6 @@
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
+import 'package:oniyeye/components/model/user_login.dart';
 import 'package:oniyeye/screens/complete_profile/complete_profile_screen.dart';
 
 import '../../../components/custom_suffix_icon.dart';
@@ -36,6 +38,17 @@ class _SignUpFormState extends State<SignUpForm> {
   String password = "";
   String confirm_password = "";
   final List<String> errors = [];
+  final TextEditingController emailController = TextEditingController();
+  final TextEditingController passController = TextEditingController();
+  final TextEditingController confppassController = TextEditingController();
+
+  @override
+  void dispose() {
+    emailController.dispose();
+    passController.dispose();
+    confppassController.dispose();
+    super.dispose();
+  }
 
   bool isVisible = true;
   bool isPassVisible = true;
@@ -49,11 +62,12 @@ class _SignUpFormState extends State<SignUpForm> {
             EdgeInsets.symmetric(horizontal: getProportionateScreenWidth(20)),
         child: Column(
           children: [
-            buildEmailFormField(),
+            buildEmailFormField(controller: emailController),
             SizedBox(
               height: getProportionateScreenHeight(30),
             ),
             buildPasswordFormField(
+                controller: passController,
                 isPassVisible: isPassVisible,
                 press: () {
                   setState(() {
@@ -64,6 +78,7 @@ class _SignUpFormState extends State<SignUpForm> {
               height: getProportionateScreenHeight(30),
             ),
             buildConfFormField(
+                controller: confppassController,
                 press: () {
                   setState(() {
                     isVisible = !isVisible;
@@ -81,7 +96,6 @@ class _SignUpFormState extends State<SignUpForm> {
                       "password is:$password\nconfirm password is:$confirm_password");
                   if (_formKey.currentState!.validate()) {
                     _formKey.currentState!.save();
-                    
                     Navigator.pushNamed(context, CompleteProfile.routeName);
                   }
                 })
@@ -92,8 +106,11 @@ class _SignUpFormState extends State<SignUpForm> {
   }
 
   TextFormField buildConfFormField(
-      {required isVisible, required Function() press}) {
+      {required TextEditingController controller,
+      required isVisible,
+      required Function() press}) {
     return TextFormField(
+      controller: controller,
       obscureText: isVisible,
       keyboardType: TextInputType.emailAddress,
       onSaved: (newValue) => confirm_password = newValue!,
@@ -141,8 +158,11 @@ class _SignUpFormState extends State<SignUpForm> {
   }
 
   TextFormField buildPasswordFormField(
-      {required isPassVisible, required Function() press}) {
+      {required TextEditingController controller,
+      required isPassVisible,
+      required Function() press}) {
     return TextFormField(
+      controller: controller,
       obscureText: isPassVisible,
       keyboardType: TextInputType.emailAddress,
       onSaved: (newValue) => password = newValue!,
@@ -192,8 +212,10 @@ class _SignUpFormState extends State<SignUpForm> {
     );
   }
 
-  TextFormField buildEmailFormField() {
+  TextFormField buildEmailFormField(
+      {required TextEditingController controller}) {
     return TextFormField(
+      controller: controller,
       onSaved: (newValue) => email = newValue!,
       keyboardType: TextInputType.emailAddress,
       onChanged: (value) {
@@ -223,4 +245,11 @@ class _SignUpFormState extends State<SignUpForm> {
           )),
     );
   }
+
+  // void registerUser() {
+  //   final firebase = FirebaseAuth.instance;
+  //   firebase.createUserWithEmailAndPassword(
+  //       email: emailController.text.trim(),
+  //       password: passController.text.trim());
+  // }
 }

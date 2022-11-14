@@ -1,9 +1,9 @@
 // ignore_for_file: public_member_api_docs, sort_constructors_first
 class NewUser {
-  final String firstname;
-  final String lastname;
+  final String email;
+  final String password;
   NewUser({
-    required this.firstname,
-    required this.lastname,
+    required this.email,
+    required this.password,
   });
 }

@@ -26,8 +26,8 @@ class ProfilePic extends StatelessWidget {
                 onPressed: (){},
                 style: ElevatedButton.styleFrom(
                   padding: EdgeInsets.zero,
-                  backgroundColor: Color(0xfff5f6f9),
-                  shape: CircleBorder(
+                  backgroundColor: const Color(0xfff5f6f9),
+                  shape: const CircleBorder(
                     side: BorderSide(
                         color: Colors.white
                     ),

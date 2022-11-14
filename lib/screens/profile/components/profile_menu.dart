@@ -35,14 +35,14 @@ class ProfileMenu extends StatelessWidget {
               width: 22,
               color: kPrimaryColor,
             ),
-            SizedBox(width: 20,),
+            const SizedBox(width: 20,),
             Expanded(
                 child: Text(
                   text,
                   style: Theme.of(context).textTheme.bodyText1,
                 )
             ),
-            Icon(Icons.arrow_forward_ios,color: Colors.black,)
+            const Icon(Icons.arrow_forward_ios,color: Colors.black,)
           ],
         ),
 

@@ -76,7 +76,7 @@ class CheckBarCard extends StatelessWidget {
                   ),
                   child: SvgPicture.asset("assets/icons/receipt.svg"),
                 ),
-                Spacer(),
+                const Spacer(),
                 const Text('Add voucher code'),
                 const SizedBox(width: 10,),
                 const Icon(Icons.arrow_forward_ios, size: 12, color: kTextColor,),
