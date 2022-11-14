@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:oniyeye/screens/home_screen/components/searchField.dart';
+import 'package:oniyeye/screens/home_screen/components/search_field.dart';
 
 import '../../../size_config.dart';
 import '../../cart/cart_screen.dart';
@@ -15,7 +15,7 @@ class HomeHeader extends StatelessWidget {
     return Padding(padding: EdgeInsets.symmetric(horizontal: getProportionateScreenWidth(20)),
         child: Row(mainAxisAlignment: MainAxisAlignment.spaceBetween,
           children: [
-            const searchField(),
+            const SearchField(),
             IconBtnWithCounter(
               svgSrc: "assets/icons/Cart Icon.svg",
               press: ()=>Navigator.pushNamed(context, CartScreen.routeName),

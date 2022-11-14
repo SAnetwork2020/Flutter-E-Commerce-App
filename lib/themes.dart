@@ -28,8 +28,8 @@ InputDecorationTheme inputDecorationTheme() {
 }
 TextTheme textTheme() {
   return const TextTheme(
-    bodyText1: TextStyle(color: kTextColor),
-    bodyText2: TextStyle(color: kTextColor),
+    bodyLarge: TextStyle(color: kTextColor),
+    bodyMedium: TextStyle(color: kTextColor),
   );
 }
 AppBarTheme appBarTheme() {
@@ -38,7 +38,7 @@ AppBarTheme appBarTheme() {
     elevation: 0,
     iconTheme: const IconThemeData(color:Colors.black),
     // systemOverlayStyle: SystemUiOverlayStyle.dark,
-    toolbarTextStyle: const TextTheme(headline6: TextStyle(fontSize: 16, color: Color(0xff8B8B8B))).bodyText2,
-    titleTextStyle: const TextTheme(headline6: TextStyle(fontSize: 16, color: Color(0xff8B8B8B))).headline6,
+    toolbarTextStyle: const TextTheme(titleLarge: TextStyle(fontSize: 16, color: Color(0xff8B8B8B))).bodyMedium,
+    titleTextStyle: const TextTheme(titleLarge: TextStyle(fontSize: 16, color: Color(0xff8B8B8B))).titleLarge,
   );
 }

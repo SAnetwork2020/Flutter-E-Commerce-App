@@ -23,7 +23,7 @@ class ProductDescription extends StatelessWidget {
           padding: EdgeInsets.symmetric(horizontal: getProportionateScreenWidth(20)),
           child: Text(
             product.title,
-            style: Theme.of(context).textTheme.headline6,
+            style: Theme.of(context).textTheme.titleLarge,
           ),
         ),
         const SizedBox(height: 5,),

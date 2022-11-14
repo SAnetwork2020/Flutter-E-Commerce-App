@@ -48,7 +48,7 @@ class ColorDots extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    int SelectedColor = 3;
+    // int SelectedColor = 3;
     return Row(
       children: [
         ...List.generate(product.colors.length, (index) => ColorDot(color: product.colors[index])),

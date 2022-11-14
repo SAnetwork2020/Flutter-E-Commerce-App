@@ -1,6 +1,4 @@
-import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
-import 'package:oniyeye/components/model/user_login.dart';
 import 'package:oniyeye/screens/complete_profile/complete_profile_screen.dart';
 
 import '../../../components/custom_suffix_icon.dart';
@@ -36,7 +34,7 @@ class _SignUpFormState extends State<SignUpForm> {
   final _formKey = GlobalKey<FormState>();
   String email = "";
   String password = "";
-  String confirm_password = "";
+  String confirmPassword = "";
   final List<String> errors = [];
   final TextEditingController emailController = TextEditingController();
   final TextEditingController passController = TextEditingController();
@@ -93,7 +91,7 @@ class _SignUpFormState extends State<SignUpForm> {
                 text: "Continue",
                 press: () {
                   print(
-                      "password is:$password\nconfirm password is:$confirm_password");
+                      "password is:$password\nconfirm password is:$confirmPassword");
                   if (_formKey.currentState!.validate()) {
                     _formKey.currentState!.save();
                     Navigator.pushNamed(context, CompleteProfile.routeName);
@@ -113,14 +111,14 @@ class _SignUpFormState extends State<SignUpForm> {
       controller: controller,
       obscureText: isVisible,
       keyboardType: TextInputType.emailAddress,
-      onSaved: (newValue) => confirm_password = newValue!,
+      onSaved: (newValue) => confirmPassword = newValue!,
       onChanged: (value) {
         if (value.isNotEmpty) {
           removeError(error: kPassNullError);
         } else if (value == password) {
           removeError(error: kConfPassNullError);
         }
-        confirm_password = value;
+        confirmPassword = value;
       },
       validator: (value) {
         if (value!.isEmpty) {
@@ -142,7 +140,7 @@ class _SignUpFormState extends State<SignUpForm> {
               left: getProportionateScreenWidth(10),
             ),
             child: const CustomSuffixIcon(
-              SvgIcon: 'assets/icons/Lock.svg',
+              svgIcon: 'assets/icons/Lock.svg',
             ),
           ),
           suffixIcon: Padding(
@@ -194,7 +192,7 @@ class _SignUpFormState extends State<SignUpForm> {
               left: getProportionateScreenWidth(10),
             ),
             child: const CustomSuffixIcon(
-              SvgIcon: 'assets/icons/Lock.svg',
+              svgIcon: 'assets/icons/Lock.svg',
             ),
           ),
           suffixIcon: Padding(
@@ -241,7 +239,7 @@ class _SignUpFormState extends State<SignUpForm> {
           labelText: "Email",
           floatingLabelBehavior: FloatingLabelBehavior.always,
           suffixIcon: CustomSuffixIcon(
-            SvgIcon: 'assets/icons/Mail.svg',
+            svgIcon: 'assets/icons/Mail.svg',
           )),
     );
   }

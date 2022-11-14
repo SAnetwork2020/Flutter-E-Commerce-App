@@ -8,12 +8,10 @@ class CustomAppBar extends StatelessWidget implements PreferredSize{
   final double rating;
   const CustomAppBar({super.key, required this.rating});
   @override
-  // TODO: implement preferredSize
   Size get preferredSize => Size.fromHeight(AppBar().preferredSize.height);
 
   @override
   Widget build(BuildContext context) {
-    // TODO: implement build
     return SafeArea(
       child: Padding(
         padding: EdgeInsets.symmetric(horizontal: getProportionateScreenWidth(20)),
@@ -46,6 +44,5 @@ class CustomAppBar extends StatelessWidget implements PreferredSize{
   }
 
   @override
-  // TODO: implement child
   Widget get child => throw UnimplementedError();
 }

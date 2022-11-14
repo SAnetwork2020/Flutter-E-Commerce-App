@@ -158,7 +158,7 @@ class _SignFormState extends State<SignForm> {
               left: getProportionateScreenWidth(10),
             ),
             child: const CustomSuffixIcon(
-              SvgIcon: 'assets/icons/Lock.svg',
+              svgIcon: 'assets/icons/Lock.svg',
             ),
           ),
           suffixIcon: Padding(
@@ -203,7 +203,7 @@ class _SignFormState extends State<SignForm> {
           labelText: "Email",
           floatingLabelBehavior: FloatingLabelBehavior.always,
           suffixIcon: CustomSuffixIcon(
-            SvgIcon: 'assets/icons/Mail.svg',
+            svgIcon: 'assets/icons/Mail.svg',
           )),
     );
   }
