@@ -160,7 +160,7 @@ class _SignFormState extends State<SignForm> {
             child: const CustomSuffixIcon(
               svgIcon: 'assets/icons/Lock.svg',
             ),
-          ),
+          ), 
           suffixIcon: Padding(
             padding: EdgeInsets.only(
               right: getProportionateScreenWidth(10),
